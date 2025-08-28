@@ -2,18 +2,18 @@ package ui.tests;
 
 import org.testng.annotations.Test;
 import ui.base.BaseUITest;
-import ui.pages.LoginPage;
+import ui.maps.LoginMaps;
 
 public class LoginAdminTest extends BaseUITest {
 
     @Test
     public void loginWithValidCredentials() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
+        LoginMaps loginMaps = new LoginMaps(driver);
 
-        loginPage.goToLoginPage();
-        loginPage.enterUsername("admin");
-        loginPage.enterPassword("password");
-        loginPage.clickLogin();
+        loginMaps.goToLoginPage();
+        loginMaps.enterUsername("admin");
+        loginMaps.enterPassword("password");
+        loginMaps.clickLogin();
 
         Thread.sleep(3000); // luego lo cambiao por un waits
     }

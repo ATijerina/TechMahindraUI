@@ -2,32 +2,29 @@ package ui.tests;
 
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ui.base.BaseUITest;
-import ui.pages.HomePage;
-
-import java.util.List;
+import ui.maps.HomeMaps;
 
 public class CheckInCheckOutTest extends BaseUITest {
 
     @Test
     public void testCheckAvailabilityWithDates() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
-        HomePage homePage = new HomePage(driver);
+        HomeMaps homeMaps = new HomeMaps(driver);
 
-        homePage.goToHomePage();
-        homePage.clickNavbarBooking();
+        homeMaps.goToHomePage();
+        homeMaps.clickNavbarBooking();
 
         // Me traigo mi metodo de HomePage
-        homePage.setCheckInAndCheckOut("20/08/2025", "27/08/2025");
+        homeMaps.setCheckInAndCheckOut("17/08/2025", "20/08/2025");
 
-        homePage.clickCheckAvailability();
+        homeMaps.clickCheckAvailability();
 
         // Validamos que aparezcan habitaciones
-        Assert.assertTrue(homePage.getAvailableRooms().size() > 0);
+        Assert.assertTrue(homeMaps.getAvailableRooms().size() > 0);
 
         driver.quit();
     }

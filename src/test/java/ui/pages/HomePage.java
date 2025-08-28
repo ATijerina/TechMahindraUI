@@ -1,9 +1,9 @@
 
-package ui.maps;
+package ui.pages;
 
 import org.openqa.selenium.By;
 
-public class HomePageMap {
+public class HomePage {
     // Navbar links
 
     public By roomsLink = By.cssSelector("a.nav-link[href='/#rooms']");

@@ -3,9 +3,13 @@
     <test name="Regression Tests">
         <classes>
             <!-- Incluyo aqui mis test -->
+            <class name="ui.tests.LoginAdminTest"/>
+            <class name="ui.tests.NavbarLinksNavigationTest"/>
             <class name="ui.tests.MainPagesRenderTest"/>
+            <class name="ui.tests.AvailabilityTest"/>
             <class name="ui.tests.CheckInCheckOutTest"/>
             <class name="ui.tests.EndToEndBookingTest"/>
+
         </classes>
     </test>
 </suite>

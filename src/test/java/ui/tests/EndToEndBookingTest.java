@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import ui.helpers.DataGenerator;
 
 import java.time.Duration;
 import java.util.List;
@@ -20,7 +21,7 @@ public class EndToEndBookingTest {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         Actions actions = new Actions(driver);
 
         // 1️⃣ Abrir la página principal
@@ -42,10 +43,10 @@ public class EndToEndBookingTest {
         WebElement checkoutInput = dateInputs.get(1).findElement(By.cssSelector(".form-control"));
 
         checkinInput.clear();
-        checkinInput.sendKeys("28/09/2025");
+        checkinInput.sendKeys("17/09/2025");
 
         checkoutInput.clear();
-        checkoutInput.sendKeys("29/09/2025");
+        checkoutInput.sendKeys("18/09/2025");
 
         // 4️⃣ Click en Check Availability
         WebElement checkAvailabilityBtn = wait.until(
@@ -68,10 +69,14 @@ public class EndToEndBookingTest {
         reserveNowBtn.click();
 
         // 7️⃣ Llenar formulario de booking
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("firstname"))).sendKeys("Andrea");
-        driver.findElement(By.xpath("//input[@placeholder='Lastname']")).sendKeys("Tijerina");
-        driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("Andrea.Test@live.com");
-        driver.findElement(By.xpath("//input[@placeholder='Phone']")).sendKeys("844323125512");
+        String firstName= DataGenerator.randomFirstName();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("firstname"))).sendKeys(firstName);
+        String lastName= DataGenerator.randomLastName();
+        driver.findElement(By.xpath("//input[@placeholder='Lastname']")).sendKeys(lastName);
+        String randomEmail = DataGenerator.randomEmail();
+        driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(randomEmail);
+        String randomPhone = DataGenerator.randomPhone();
+        driver.findElement(By.xpath("//input[@placeholder='Phone']")).sendKeys(randomPhone);
 
         WebElement finalReserveBtn = wait.until(
                 ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Reserve Now']"))

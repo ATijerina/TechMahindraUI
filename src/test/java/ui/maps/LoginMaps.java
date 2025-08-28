@@ -1,9 +1,9 @@
-package ui.pages;
+package ui.maps;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
+public class LoginMaps {
     private WebDriver driver;
 
     // Locators
@@ -11,7 +11,7 @@ public class LoginPage {
     private By passwordField = By.id("password");
     private By loginButton = By.id("doLogin");
 
-    public LoginPage(WebDriver driver) {
+    public LoginMaps(WebDriver driver) {
         this.driver = driver;
     }
 

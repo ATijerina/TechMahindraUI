@@ -1,43 +1,42 @@
 package ui.tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ui.base.BaseUITest;
+import ui.maps.HomeMaps;
 import ui.pages.HomePage;
-import ui.maps.HomePageMap;
 
 public class NavbarLinksNavigationTest extends BaseUITest {
 
     @Test
     public void testNavbarLinks() throws InterruptedException {
-        HomePage homePage = new HomePage(driver);
-        HomePageMap map = new HomePageMap();
+        HomeMaps homeMaps = new HomeMaps(driver);
+        HomePage map = new HomePage();
 
-        homePage.goToHomePage();
+        homeMaps.goToHomePage();
 
         // Rooms
-        homePage.clickNavbarLink(map.roomsLink);
+        homeMaps.clickNavbarLink(map.roomsLink);
         Assert.assertEquals(driver.getCurrentUrl(), "https://automationintesting.online/#rooms");
 
         // Booking
-        homePage.clickNavbarLink(map.bookingLink);
+        homeMaps.clickNavbarLink(map.bookingLink);
         Assert.assertEquals(driver.getCurrentUrl(), "https://automationintesting.online/#booking");
 
         // Amenities
-        homePage.clickNavbarLink(map.amenitiesLink);
+        homeMaps.clickNavbarLink(map.amenitiesLink);
         Assert.assertTrue(driver.getCurrentUrl().contains("#amenities"));
 
         // Location
-        homePage.clickNavbarLink(map.locationLink);
+        homeMaps.clickNavbarLink(map.locationLink);
         Assert.assertEquals(driver.getCurrentUrl(), "https://automationintesting.online/#location");
 
         // Contact
-        homePage.clickNavbarLink(map.contactLink);
+        homeMaps.clickNavbarLink(map.contactLink);
         Assert.assertEquals(driver.getCurrentUrl(), "https://automationintesting.online/#contact");
 
         // Admin
-        homePage.clickNavbarLink(map.adminLink);
+        homeMaps.clickNavbarLink(map.adminLink);
         Assert.assertTrue(driver.getCurrentUrl().contains("/admin"));
     }
 }

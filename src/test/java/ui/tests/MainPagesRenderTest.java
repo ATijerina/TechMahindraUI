@@ -1,40 +1,39 @@
 package ui.tests;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ui.base.BaseUITest;
+import ui.maps.HomeMaps;
 import ui.pages.HomePage;
-import ui.maps.HomePageMap;
 
 public class MainPagesRenderTest extends BaseUITest {
 
     @Test
     public void testMainPagesRenderCorrectly() throws InterruptedException {
-        HomePage homePage = new HomePage(driver);
-        HomePageMap map = new HomePageMap();
+        HomeMaps homeMaps = new HomeMaps(driver);
+        HomePage map = new HomePage();
 
-        homePage.goToHomePage();
+        homeMaps.goToHomePage();
 
         // Home: abrir hamburger menu si es necesario
-        homePage.openHamburgerMenuIfNeeded();
+        homeMaps.openHamburgerMenuIfNeeded();
         Assert.assertEquals(driver.getCurrentUrl(), "https://automationintesting.online/");
 
         // Rooms
         scrollToElement(driver.findElement(map.roomsLink));
-        homePage.clickNavbarLink(map.roomsLink);
+        homeMaps.clickNavbarLink(map.roomsLink);
         Assert.assertEquals(driver.getCurrentUrl(), "https://automationintesting.online/#rooms");
 
         // Booking
         scrollToElement(driver.findElement(map.bookingLink));
-        homePage.clickNavbarLink(map.bookingLink);
+        homeMaps.clickNavbarLink(map.bookingLink);
         Assert.assertEquals(driver.getCurrentUrl(), "https://automationintesting.online/#booking");
 
         // Amenities
         scrollToElement(driver.findElement(map.amenitiesLink));
-        homePage.clickNavbarLink(map.amenitiesLink);
+        homeMaps.clickNavbarLink(map.amenitiesLink);
 
          // Verificamos que el link funcione
         if (!driver.getCurrentUrl().contains("#amenities")) {
@@ -44,17 +43,17 @@ public class MainPagesRenderTest extends BaseUITest {
 
         // Location
         scrollToElement(driver.findElement(map.locationLink));
-        homePage.clickNavbarLink(map.locationLink);
+        homeMaps.clickNavbarLink(map.locationLink);
         Assert.assertEquals(driver.getCurrentUrl(), "https://automationintesting.online/#location");
 
         // Contact
         scrollToElement(driver.findElement(map.contactLink));
-        homePage.clickNavbarLink(map.contactLink);
+        homeMaps.clickNavbarLink(map.contactLink);
         Assert.assertEquals(driver.getCurrentUrl(), "https://automationintesting.online/#contact");
 
         // Admin
         scrollToElement(driver.findElement(map.adminLink));
-        homePage.clickNavbarLink(map.adminLink);
+        homeMaps.clickNavbarLink(map.adminLink);
         Assert.assertTrue(driver.getCurrentUrl().contains("/admin"));
     }
 

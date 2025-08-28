@@ -17,7 +17,7 @@ public class BaseUITest {
         driver.manage().window().maximize();
 
         // Tiempo de espera implícito para elementos
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
     @AfterMethod

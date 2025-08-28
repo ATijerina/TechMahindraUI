@@ -1,23 +1,22 @@
-package ui.pages;
+package ui.maps;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ui.maps.HomePageMap;
 
 import java.time.Duration;
 import java.util.List;
 
-public class HomePage {
+public class HomeMaps {
     private WebDriver driver;
     private WebDriverWait wait;
-    private HomePageMap map;
+    private ui.pages.HomePage map;
 
-    public HomePage(WebDriver driver) {
+    public HomeMaps(WebDriver driver) {
         this.driver = driver;
-        this.map = new HomePageMap();
+        this.map = new ui.pages.HomePage();
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
@@ -62,7 +61,7 @@ public class HomePage {
     }
 
     //  Getter para HomePageMap, metodo de acceso
-    public HomePageMap getMap() {
+    public ui.pages.HomePage getMap() {
         return map;
     }
 
