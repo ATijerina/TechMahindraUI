@@ -60,10 +60,10 @@ public class HomeMaps {
         return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(map.availableRooms));
     }
 
-    //  Getter para HomePageMap, metodo de acceso
-    public ui.pages.HomePage getMap() {
-        return map;
-    }
+//    //  Getter para HomePageMap, metodo de acceso
+//    public ui.pages.HomePage getMap() {
+//        return map;
+//    }
 
     public void setCheckInAndCheckOut(String checkInDate, String checkOutDate) {
         List<WebElement> inputs = wait.until(
