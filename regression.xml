@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Regression Suite">
+    <test name="Regression Tests">
+        <classes>
+            <!-- Incluyo aqui mis test -->
+            <class name="ui.tests.MainPagesRenderTest"/>
+            <class name="ui.tests.CheckInCheckOutTest"/>
+            <class name="ui.tests.EndToEndBookingTest"/>
+        </classes>
+    </test>
+</suite>
